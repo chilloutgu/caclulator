@@ -25,4 +25,10 @@ public class StringCalculatorTest {
 		assertEquals(3, cal.add("3"));
 		assertEquals(2, cal.add("2"));
 	}
+	
+	@Test
+	public void add_½°Ç¥±¸ºÐÀÚ() {
+		assertEquals(3, cal.add("1,2"));
+		assertEquals(5, cal.add("2,3"));
+	}
  }
