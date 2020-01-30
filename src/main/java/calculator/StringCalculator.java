@@ -15,17 +15,27 @@ public class StringCalculator {
 	}
 	
 	private String[] split(String text) {
-		return text.split(",");
+		return text.split(",|:");
 	}
 	
 	private int[] toInts(String[] tokens) {
 		int[] numbers = new int[tokens.length];
 		
 		for(int i=0; i<tokens.length; i++) {
-			numbers[i] = Integer.parseInt(tokens[i]);
+			numbers[i] = toPositive(tokens[i]);
 		}
 		
 		return numbers;
+	}
+	
+	private int toPositive(String token) {
+		int number = Integer.parseInt(token);
+		
+		if(number < 0) {
+			throw new RuntimeException();
+		}
+		
+		return number;
 	}
 	
 	private int sum(int[] numbers) {

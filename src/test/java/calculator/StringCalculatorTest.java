@@ -31,4 +31,17 @@ public class StringCalculatorTest {
 		assertEquals(3, cal.add("1,2"));
 		assertEquals(5, cal.add("2,3"));
 	}
+	
+	@Test
+	public void add_콜론구분자() {
+		assertEquals(7, cal.add("3:4"));
+		assertEquals(8, cal.add("2,1:5"));
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void add_negative() throws Exception {
+		cal.add("-1,3");
+		cal.add("-2:5");
+		cal.add("-3,5:7");
+	}
  }
