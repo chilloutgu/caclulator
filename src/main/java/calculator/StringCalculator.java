@@ -9,14 +9,24 @@ public class StringCalculator {
 		
 		String[] tokens = text.split(",");
 		
-		return sum(tokens);
+		return sum(toInts(tokens));
 	}
 	
-	private int sum(String[] tokens) {
+	private int[] toInts(String[] tokens) {
+		int[] numbers = new int[tokens.length];
+		
+		for(int i=0; i<tokens.length; i++) {
+			numbers[i] = Integer.parseInt(tokens[i]);
+		}
+		
+		return numbers;
+	}
+	
+	private int sum(int[] numbers) {
 		int sum = 0;
 		
-		for(String token : tokens) {
-			sum += Integer.parseInt(token);
+		for(int number : numbers) {
+			sum += number;
 		}
 		
 		return sum;
