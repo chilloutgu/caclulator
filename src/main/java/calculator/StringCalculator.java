@@ -3,13 +3,19 @@ package calculator;
 public class StringCalculator {
 	
 	public int add(String text) {
-		if(text == null || text.isEmpty()) {
+		if(isBlank(text)) {
 			return 0;
 		}
 		
-		String[] tokens = text.split(",");
-		
-		return sum(toInts(tokens));
+		return sum(toInts(split(text)));
+	}
+	
+	private boolean isBlank(String text) {
+		return text == null || text.isEmpty();
+	}
+	
+	private String[] split(String text) {
+		return text.split(",");
 	}
 	
 	private int[] toInts(String[] tokens) {
