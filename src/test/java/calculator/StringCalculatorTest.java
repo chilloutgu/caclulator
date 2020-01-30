@@ -19,4 +19,10 @@ public class StringCalculatorTest {
 		assertEquals(0, cal.add(null));
 		assertEquals(0, cal.add(""));
 	}
-}
+	
+	@Test
+	public void add_숫자하나() {
+		assertEquals(3, cal.add("3"));
+		assertEquals(2, cal.add("2"));
+	}
+ }
