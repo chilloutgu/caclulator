@@ -9,6 +9,10 @@ public class StringCalculator {
 		
 		String[] tokens = text.split(",");
 		
+		return sum(tokens);
+	}
+	
+	private int sum(String[] tokens) {
 		int sum = 0;
 		
 		for(String token : tokens) {
