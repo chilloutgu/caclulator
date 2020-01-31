@@ -22,20 +22,18 @@ public class StringCalculator {
 		int[] numbers = new int[tokens.length];
 		
 		for(int i=0; i<tokens.length; i++) {
-			numbers[i] = toPositive(tokens[i]);
+			numbers[i] = Integer.parseInt(tokens[i]);
+			
+			checkNegative(numbers[i]);
 		}
 		
 		return numbers;
 	}
 	
-	private int toPositive(String token) {
-		int number = Integer.parseInt(token);
-		
+	private void checkNegative(int number) {
 		if(number < 0) {
 			throw new RuntimeException();
 		}
-		
-		return number;
 	}
 	
 	private int sum(int[] numbers) {
